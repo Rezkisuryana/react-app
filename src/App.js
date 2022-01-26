@@ -1,23 +1,36 @@
-import logo from './logo.svg';
+import { Route, Routes, Link } from 'react-router-dom';
+import About from './About';
+import AboutTeam from './AboutTeam';
 import './App.css';
+import Blog from './Blog';
+import BlogDetail from './BlogDetail';
+import Dashboard from './Dashboard';
+import Home from './Home';
+import Login from './Login';
+import Notfound from './Notfound';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* navigasi */}
+      <nav>
+        <Link to="/">HOme</Link>
+        <Link to="about">About</Link>
+        <Link to="blog">Blog</Link>
+        <Link to="login">Login</Link>
+      </nav>
+      {/* bikin peta route*/}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="about" element={<About />}>
+          <Route path="about/team" element={<AboutTeam />} />
+        </Route>
+        <Route path="login" element={<Login />} />
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="blog" element={<Blog />} />
+        <Route path="blog/:slug" element={<BlogDetail />} />
+        <Route path="*" element={<Notfound />} />
+      </Routes>
     </div>
   );
 }
