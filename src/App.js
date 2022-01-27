@@ -7,6 +7,7 @@ import BlogDetail from './BlogDetail';
 import Dashboard from './Dashboard';
 import Home from './Home';
 import Login from './Login';
+import MyComponent from './MyComponent';
 import Notfound from './Notfound';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         </Route>
         <Route path="login" element={<Login />} />
         <Route path="dashboard" element={<Dashboard />} />
+        <Route path="mycomponent" element={<MyComponent/>} />
         <Route path="blog" element={<Blog />} />
         <Route path="blog/:slug" element={<BlogDetail />} />
         <Route path="*" element={<Notfound />} />
